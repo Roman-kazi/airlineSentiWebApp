@@ -1,2 +1,2 @@
 # airlineSentiWebApp
-Streamlit Web App for visualizing airline sentiments
+Streamlit Web App for visualizing sentiments of airline related tweets
