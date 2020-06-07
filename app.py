@@ -11,7 +11,7 @@ st.sidebar.title("Sentiment Analysis of Airline Tweets")
 st.markdown("This is a streamlit dashbord to analyze sentiments of tweets 🐦")
 st.sidebar.markdown(" This is a streamlit dashbord to analyze sentiments of tweets 🐦?")
 
-DATA_URL = ("/home/coder/coursera streamlit/Tweets.csv")
+DATA_URL = ("Tweets.csv")
 
 @st.cache(persist=True)
 def load_data():
@@ -41,8 +41,8 @@ if not st.sidebar.checkbox("Hide",True):
         fig = px.pie(sentiment_count,values='Tweets',names='Sentiment')
         st.plotly_chart(fig)
 
-        
-        #map 
+
+        #map
 st.sidebar.subheader("Hour of Tweet")
 hour = st.sidebar.slider("Hour of day",0,23)
 #number = st.sidebar.number_input("Number input",min_value=101,max_value=1001)
