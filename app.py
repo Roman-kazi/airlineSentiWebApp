@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 st.title("Sentiment Analysis of Airline Tweets")
 st.sidebar.title("Sentiment Analysis of Airline Tweets")
 
-st.markdown("This is a streamlit dashbord to analyze sentiments of tweets 🐦")
+st.markdown("This is a streamlit dashbord to analyze sentiments of tweets 🐦 ")
+st.markdown("Please use sidebar to access different features")
 st.sidebar.markdown(" This is a streamlit dashbord to analyze sentiments of tweets 🐦?")
 
 DATA_URL = ("Tweets.csv")
@@ -32,7 +33,7 @@ sentiment_count = data['airline_sentiment'].value_counts()
 # Creating a tidy dataframe
 sentiment_count = pd.DataFrame({'Sentiment':sentiment_count.index,'Tweets':sentiment_count.values})
 
-if not st.sidebar.checkbox("Hide",True):
+if not st.sidebar.checkbox("Hide",False):
     st.markdown("Number of tweets by sentiment")
     if select == "Histogram":
         fig = px.bar(sentiment_count,x='Sentiment',y='Tweets',height=500,color='Tweets')
@@ -47,7 +48,7 @@ st.sidebar.subheader("Hour of Tweet")
 hour = st.sidebar.slider("Hour of day",0,23)
 #number = st.sidebar.number_input("Number input",min_value=101,max_value=1001)
 modified_data = data[data['tweet_created'].dt.hour == hour]
-if not st.sidebar.checkbox("Close",True,key='1'):
+if not st.sidebar.checkbox("Close",False,key='1'):
     st.markdown("Tweets location based on hour of day")
     st.markdown('### %i tweets between %i:00 hours and %i:00'%(len(modified_data),hour,(hour+1)%24))
     st.map(modified_data)
